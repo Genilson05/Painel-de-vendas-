@@ -1,0 +1,22 @@
+import pandas as pd
+import numpy as np
+
+# Criando um dataset simples de vendas
+dados = {
+    'Data': pd.date_range(start='2023-01-01', periods=10, freq='D'),
+    'Produto': ['Notebook', 'Smartphone', 'Tablet', 'Smartwatch', 'Notebook', 'Tablet', 'Smartphone', 'Smartwatch', 'Notebook', 'Tablet'],
+    'Preço': [3000, 2000, 1500, 1000, 3200, 1400, 2100, 950, 2900, 1350],
+    'Quantidade': [2, 3, 1, 4, 2, 1, 3, 2, 5, 2]
+}
+
+# Criando um DataFrame
+df = pd.DataFrame(dados)
+
+# Calculando o total de vendas
+df['Total_Vendas'] = df['Preço'] * df['Quantidade']
+
+# Salvando os dados em um arquivo CSV
+df.to_csv('dados_vendas.csv', index=False)
+
+# Exibir as primeiras linhas
+df.head()
